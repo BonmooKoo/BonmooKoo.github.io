@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonmoo Koo</title>
+<meta name="description" content="Bonmoo Koo — Integrated M.S./Ph.D. student at KAIST working on energy-aware resource management and efficient database systems.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #0b57d0;
+    --border: #e5e5e5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121212;
+      --fg: #e8e8e8;
+      --muted: #9a9a9a;
+      --accent: #8ab4f8;
+      --border: #2a2a2a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 24px 96px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 8px;
+  }
+  header img {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .tagline {
+    color: var(--muted);
+    margin: 0;
+  }
+  h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 40px 0 12px;
+  }
+  p { margin: 0 0 14px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .item { margin-bottom: 16px; }
+  .item .head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .item .title { font-weight: 600; }
+  .item .date { color: var(--muted); font-size: 0.9rem; white-space: nowrap; }
+  .item .sub { color: var(--muted); font-size: 0.95rem; }
+  .pub { margin-bottom: 16px; }
+  .pub .title { font-weight: 600; }
+  .pub .venue { color: var(--muted); font-size: 0.95rem; }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  @media (max-width: 520px) {
+    header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="photo.jpg" alt="Portrait of Bonmoo Koo">
+    <div>
+      <h1>Bonmoo Koo</h1>
+      <p class="tagline">Integrated M.S./Ph.D. Student<br>School of Electrical Engineering, KAIST</p>
+    </div>
+  </header>
+
+  <h2>About</h2>
+  <p>
+    I am a graduate researcher at the KAIST OS Lab, aiming to contribute to
+    energy-aware resource management and efficient database systems through
+    innovative software design. My work spans distributed storage systems,
+    RDMA and disaggregated memory, and lightweight concurrency with C++ coroutines.
+  </p>
+
+  <h2>Education</h2>
+  <div class="item">
+    <div class="head">
+      <span class="title">KAIST</span>
+      <span class="date">Mar 2024 – Present</span>
+    </div>
+    <div class="sub">Integrated M.S./Ph.D. Program, School of Electrical Engineering</div>
+  </div>
+  <div class="item">
+    <div class="head">
+      <span class="title">Konkuk University</span>
+      <span class="date">Mar 2018 – Feb 2023</span>
+    </div>
+    <div class="sub">B.S. in Computer Science and Engineering (GPA 4.18/4.5)</div>
+  </div>
+
+  <h2>Experience</h2>
+  <div class="item">
+    <div class="head">
+      <span class="title">KAIST OS Lab</span>
+      <span class="date">Mar 2024 – Present</span>
+    </div>
+    <div class="sub">Graduate Researcher</div>
+  </div>
+  <div class="item">
+    <div class="head">
+      <span class="title">Data Centric Computing Lab, Konkuk University</span>
+      <span class="date">Jun 2022 – Dec 2023</span>
+    </div>
+    <div class="sub">Undergraduate Researcher — RDMA-based range index structures for disaggregated memory</div>
+  </div>
+
+  <h2>Publications</h2>
+  <div class="pub">
+    <div class="title">Directory-Granularity Filesystem Journaling for CMM-H SSDs</div>
+    <div class="venue">USENIX FAST, Feb 2025 · 3rd author</div>
+  </div>
+  <div class="pub">
+    <div class="title">ESL: A High-Performance Skiplist with Express Lane</div>
+    <div class="venue">Applied Sciences, Sep 2023 · 2nd author</div>
+  </div>
+  <div class="pub">
+    <div class="title">Converting Concurrent Range Index Structure to Range Index Structure for Disaggregated Memory</div>
+    <div class="venue">Applied Sciences, Sep 2023 · 1st author</div>
+  </div>
+
+  <h2>Contact</h2>
+  <ul class="links">
+    <li><a href="mailto:buttiman@naver.com">buttiman@naver.com</a></li>
+    <li><a href="https://github.com/BonmooKoo">GitHub</a></li>
+  </ul>
+
+  <footer>© 2026 Bonmoo Koo</footer>
+</main>
+</body>
+</html>
