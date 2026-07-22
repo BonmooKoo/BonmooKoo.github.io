@@ -31,34 +31,54 @@
     line-height: 1.65;
     font-size: 17px;
   }
-  main {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 72px 24px 96px;
-  }
-  header {
+  .layout {
     display: flex;
-    align-items: center;
-    gap: 28px;
-    margin-bottom: 8px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+    gap: 56px;
+    align-items: flex-start;
   }
-  header img {
-    width: 88px;
-    height: 88px;
+  aside {
+    position: sticky;
+    top: 0;
+    width: 230px;
+    flex-shrink: 0;
+    padding: 64px 0 40px;
+  }
+  aside img {
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     object-position: top;
     border-radius: 4px;
-    flex-shrink: 0;
+    display: block;
+    margin-bottom: 18px;
   }
   h1 {
-    font-size: 2rem;
+    font-size: 1.45rem;
     font-weight: 700;
-    margin: 0 0 4px;
+    margin: 0 0 6px;
     letter-spacing: -0.01em;
   }
   .tagline {
     color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin: 0 0 18px;
+  }
+  .side-links {
+    list-style: none;
+    padding: 14px 0 0;
     margin: 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.92rem;
+  }
+  .side-links li { margin-bottom: 8px; }
+  main {
+    flex: 1;
+    min-width: 0;
+    padding: 64px 0 96px;
   }
   h2 {
     font-size: 0.85rem;
@@ -66,8 +86,11 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--muted);
-    margin: 40px 0 12px;
+    margin: 0 0 12px;
   }
+  main section + section h2 { margin-top: 40px; }
+  section h2 { margin-top: 0; }
+  main > section:first-child h2 { margin-top: 0; }
   p { margin: 0 0 14px; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
@@ -84,18 +107,6 @@
   .pub { margin-bottom: 16px; }
   .pub .title { font-weight: 600; }
   .pub .venue { color: var(--muted); font-size: 0.95rem; }
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  .header-links {
-    margin-top: 10px;
-    font-size: 0.95rem;
-  }
   footer {
     margin-top: 56px;
     padding-top: 20px;
@@ -103,88 +114,102 @@
     color: var(--muted);
     font-size: 0.85rem;
   }
-  @media (max-width: 520px) {
-    header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  @media (max-width: 760px) {
+    .layout { flex-direction: column; gap: 0; }
+    aside {
+      position: static;
+      width: 100%;
+      padding: 48px 0 0;
+    }
+    main { padding: 32px 0 80px; }
   }
 </style>
 </head>
 <body>
-<main>
-  <header>
+<div class="layout">
+  <aside>
     <img src="photo.jpg" alt="Portrait of Bonmoo Koo">
-    <div>
-      <h1>Bonmoo Koo</h1>
-      <p class="tagline">Integrated M.S./Ph.D. Student<br>School of Electrical Engineering, KAIST</p>
-      <ul class="links header-links">
-        <li><a href="mailto:bonkoo@kaist.ac.kr">bonkoo@kaist.ac.kr</a></li>
-        <li><a href="https://github.com/BonmooKoo">GitHub</a></li>
-        <li><a href="cv.pdf">CV</a></li>
-      </ul>
-    </div>
-  </header>
+    <h1>Bonmoo Koo</h1>
+    <p class="tagline">Integrated M.S./Ph.D. Student<br>School of Electrical Engineering,<br>KAIST</p>
+    <ul class="side-links">
+      <li><a href="mailto:bonkoo@kaist.ac.kr">bonkoo@kaist.ac.kr</a></li>
+      <li><a href="https://github.com/BonmooKoo">GitHub</a></li>
+      <li><a href="cv.pdf">CV</a></li>
+    </ul>
+  </aside>
 
-  <h2>About</h2>
-  <p>
-    I am a graduate researcher at the KAIST OS Lab, aiming to contribute to
-    energy-aware resource management and efficient database systems through
-    innovative software design. My work spans distributed storage systems,
-    RDMA and disaggregated memory, and lightweight concurrency with C++ coroutines.
-  </p>
+  <main>
+    <section>
+      <h2>About</h2>
+      <p>
+        I am a graduate researcher at the KAIST OS Lab, aiming to contribute to
+        energy-aware resource management and efficient database systems through
+        innovative software design. My work spans distributed storage systems,
+        RDMA and disaggregated memory, and lightweight concurrency with C++ coroutines.
+      </p>
+    </section>
 
-  <h2>Education</h2>
-  <div class="item">
-    <div class="head">
-      <span class="title">KAIST</span>
-      <span class="date">Mar 2024 – Present</span>
-    </div>
-    <div class="sub">Integrated M.S./Ph.D. Program, School of Electrical Engineering</div>
-  </div>
-  <div class="item">
-    <div class="head">
-      <span class="title">Konkuk University</span>
-      <span class="date">Mar 2018 – Feb 2023</span>
-    </div>
-    <div class="sub">B.S. in Computer Science and Engineering (GPA 4.18/4.5)</div>
-  </div>
+    <section>
+      <h2>Education</h2>
+      <div class="item">
+        <div class="head">
+          <span class="title">KAIST</span>
+          <span class="date">Mar 2024 – Present</span>
+        </div>
+        <div class="sub">Integrated M.S./Ph.D. Program, School of Electrical Engineering</div>
+      </div>
+      <div class="item">
+        <div class="head">
+          <span class="title">Konkuk University</span>
+          <span class="date">Mar 2018 – Feb 2023</span>
+        </div>
+        <div class="sub">B.S. in Computer Science and Engineering (GPA 4.18/4.5)</div>
+      </div>
+    </section>
 
-  <h2>Experience</h2>
-  <div class="item">
-    <div class="head">
-      <span class="title">NAVER</span>
-      <span class="date">Feb 2026 – Present</span>
-    </div>
-    <div class="sub">High-performance distributed file system development</div>
-  </div>
-  <div class="item">
-    <div class="head">
-      <span class="title">KAIST OS Lab</span>
-      <span class="date">Mar 2024 – Present</span>
-    </div>
-    <div class="sub">Graduate Researcher</div>
-  </div>
-  <div class="item">
-    <div class="head">
-      <span class="title">Data Centric Computing Lab, Konkuk University</span>
-      <span class="date">Jun 2022 – Dec 2023</span>
-    </div>
-    <div class="sub">Undergraduate Researcher — RDMA-based range index structures for disaggregated memory</div>
-  </div>
+    <section>
+      <h2>Experience</h2>
+      <div class="item">
+        <div class="head">
+          <span class="title">NAVER</span>
+          <span class="date">Feb 2026 – Present</span>
+        </div>
+        <div class="sub">High-performance distributed file system development</div>
+      </div>
+      <div class="item">
+        <div class="head">
+          <span class="title">KAIST OS Lab</span>
+          <span class="date">Mar 2024 – Present</span>
+        </div>
+        <div class="sub">Graduate Researcher</div>
+      </div>
+      <div class="item">
+        <div class="head">
+          <span class="title">Data Centric Computing Lab, Konkuk University</span>
+          <span class="date">Jun 2022 – Dec 2023</span>
+        </div>
+        <div class="sub">Undergraduate Researcher — RDMA-based range index structures for disaggregated memory</div>
+      </div>
+    </section>
 
-  <h2>Publications</h2>
-  <div class="pub">
-    <div class="title">Directory-Granularity Filesystem Journaling for CMM-H SSDs</div>
-    <div class="venue">USENIX FAST, Feb 2025 · 3rd author</div>
-  </div>
-  <div class="pub">
-    <div class="title">ESL: A High-Performance Skiplist with Express Lane</div>
-    <div class="venue">Applied Sciences, Sep 2023 · 2nd author</div>
-  </div>
-  <div class="pub">
-    <div class="title">Converting Concurrent Range Index Structure to Range Index Structure for Disaggregated Memory</div>
-    <div class="venue">Applied Sciences, Sep 2023 · 1st author</div>
-  </div>
+    <section>
+      <h2>Publications</h2>
+      <div class="pub">
+        <div class="title">Directory-Granularity Filesystem Journaling for CMM-H SSDs</div>
+        <div class="venue">USENIX FAST, Feb 2025 · 3rd author</div>
+      </div>
+      <div class="pub">
+        <div class="title">ESL: A High-Performance Skiplist with Express Lane</div>
+        <div class="venue">Applied Sciences, Sep 2023 · 2nd author</div>
+      </div>
+      <div class="pub">
+        <div class="title">Converting Concurrent Range Index Structure to Range Index Structure for Disaggregated Memory</div>
+        <div class="venue">Applied Sciences, Sep 2023 · 1st author</div>
+      </div>
+    </section>
 
-  <footer>© 2026 Bonmoo Koo</footer>
-</main>
+    <footer>© 2026 Bonmoo Koo</footer>
+  </main>
+</div>
 </body>
 </html>
